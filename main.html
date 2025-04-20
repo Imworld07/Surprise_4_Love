@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surprise for My Wife</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+      text-align: center;
+      color: #2e8b57; /* soft green */
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    .question-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      color: #2e8b57;
+    }
+
+    button {
+      background: #2e8b57;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      margin-top: 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #246d47;
+    }
+
+    #final {
+      background: linear-gradient(120deg, #a1ffce, #faffd1);
+      color: #2e8b57;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    #final img {
+      border-radius: 50%;
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border: 4px solid white;
+      margin: 20px 0;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 700px;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      border-radius: 50%;
+      width: 50px;
+      height: 70px;
+      animation: float 6s infinite ease-in-out;
+      opacity: 0.8;
+    }
+
+    .balloon:nth-child(1) { left: 10%; background: #ff6f61; animation-delay: 0s; }
+    .balloon:nth-child(2) { left: 25%; background: #ff9a9e; animation-delay: 1s; }
+    .balloon:nth-child(3) { left: 40%; background: #ffd700; animation-delay: 2s; }
+    .balloon:nth-child(4) { left: 55%; background: #a0e7e5; animation-delay: 3s; }
+    .balloon:nth-child(5) { left: 70%; background: #b4f8c8; animation-delay: 4s; }
+    .balloon:nth-child(6) { left: 85%; background: #fcd5ce; animation-delay: 5s; }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 0.9; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-120vh); opacity: 0.4; }
+    }
+  </style>
+</head>
+<body>
+  <div id="interface">
+    <div class="question-box" id="step1">
+      <h1>Do you wanna know your name?</h1>
+      <button onclick="showStep('step1', 'step2')">Yes</button>
+    </div>
+    <div class="question-box" id="step2" style="display: none;">
+      <h1>You are Ananya Rajput? Am I right?</h1>
+      <button onclick="showStep('step2', 'step3')">Yes</button>
+    </div>
+    <div class="question-box" id="step3" style="display: none;">
+      <h1>Do you wanna know your birthday date?</h1>
+      <button onclick="showStep('step3', 'step4')">Yes</button>
+    </div>
+    <div class="question-box" id="step4" style="display: none;">
+      <h1>Your birthday date is 14 August, right?</h1>
+      <button onclick="showStep('step4', 'step5')">Yes</button>̥
+    </div>
+    <div class="question-box" id="step5" style="display: none;">
+      <h1>Do you wanna know your loved one's name?</h1>
+      <button onclick="showStep('step5', 'step6')">Yes</button>
+    </div>
+    <div class="question-box" id="step6" style="display: none;">
+      <h1>Your love is "Sumit Kumar", right?</h1>
+      <button onclick="showSurprise()">Yes</button>
+    </div>
+  </div>
+
+  <div id="final" style="display: none;">
+    <h1>Heyy my love! 💚</h1>
+    <img src="pihu2.png" alt="Her photo" />
+    <p>Janu, my love, my girl, my everything...</p>
+    <p>Since the day you entered my life, everything lit up. Like a spark turned into a flame, and now my world glows because of you.</p>
+    <p>Your presence gives me peace I never knew existed. Talking to you feels like home—calm, safe, and full of love.</p>
+    <p>No one ever got this close to me. And no one ever will. You’re my peace, my heart, and my forever girl.</p>
+    <p>I wait for that first call every day. To hear you say "good morning" and end the night with "good night".</p>
+    <p>I dream of the day we laugh, cry, and talk like this forever—together, every day, every night.</p>
+    <p>You're not just my love. You're a part of me. And I’ll always be yours. 💚</p>
+
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+
+    <audio id="bg-audio" autoplay loop>
+      <source src="song.mp3" type="audio/mpeg" />
+      <source src="song.ogg" type="audio/ogg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <script>
+    function showStep(current, next) {
+      document.getElementById(current).style.display = 'none';
+      document.getElementById(next).style.display = 'block';
+    }
+
+    function showSurprise() {
+      document.getElementById('interface').style.display = 'none';
+      document.getElementById('final').style.display = 'flex';
+      document.getElementById('bg-audio').play();
+    }
+  </script>
+</body>
+</html>
